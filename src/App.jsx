@@ -1,35 +1,58 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import "./App.css";
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
     <>
+      <header>hoa don tien phong</header>
       <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+        <input
+          name="currentElecInput"
+          placeholder="Số mới:"
+          type="number"
+          label
+        ></input>
+        <input
+          name="prevElecInput"
+          placeholder="Số cũ:"
+          type="number"
+          label
+        ></input>
+        <h3>Chênh lệch elec:</h3>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
+      <div>
+        <input
+          name="currentWaterInput"
+          placeholder="Số mới:"
+          type="number"
+          label
+        ></input>
+        <input
+          name="prevWaterInput"
+          placeholder="Số cũ:"
+          type="number"
+          label
+        ></input>
+        <h3>Chênh lệch water:</h3>
       </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <div>
+        <h4>
+          Rent :<input placeholder="Tiền phòng:"></input>
+        </h4>
+        <h4>
+          Tiền Điện: :<input placeholder="Tiền Điện:"></input>
+        </h4>
+        <h4>
+          Tiền Nước:<input placeholder="Tiền Nước:"></input>
+        </h4>
+        <h4>
+          Tiền Rác:<input placeholder="Tiền Rác:"></input>
+        </h4>
+        <h4>
+          Tiền Phát Sinh:<input placeholder="Tiền Phát Sinh:"></input>
+        </h4>
+      </div>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
