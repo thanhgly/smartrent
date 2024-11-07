@@ -7,6 +7,11 @@ function App() {
   const [currWater, setCurrWater] = useState("");
   const [prevWater, setPrevWater] = useState("");
   const [waterBill, setWaterBill] = useState(0);
+  const [rent, setRent] = useState("");
+  const [garbage, setGarbage] = useState("");
+  const [misc, setMisc] = useState("");
+  const [total, setTotal] = useState(0);
+
   function handleCurrElecChange(e) {
     setCurrElec(e.target.value);
     calculateElecBill(prevElec, e.target.value);
@@ -33,6 +38,29 @@ function App() {
     const bill = (currWater - prevWater) * 18000;
     setWaterBill(bill);
   };
+  const handleRentChange = (e) => {
+    setRent(e.target.value);
+  };
+  const handleGarbageChange = (e) => {
+    setGarbage(e.target.value);
+  };
+  const handleMiscChange = (e) => {
+    setMisc(e.target.value);
+  };
+  let categories = [waterBill, elecBill, rent, garbage, misc];
+  const calculateTotal = (e) => {
+    e.preventDefault();
+    // const totalSum = categories.reduce(
+    //   (acc, category) => acc + (parseFloat(category) || 0),
+    //   0
+    // );
+    const totalSum = categories.reduce(
+      (acc, category) => acc + (parseFloat(category) || 0),
+      0
+    );
+    setTotal(totalSum);
+  };
+
   return (
     <form>
       <header>hoa don tien phong</header>
@@ -76,24 +104,39 @@ function App() {
       <div>
         <h4>
           Rent :
-          <input name="rent" type="number" placeholder="Tiền phòng:"></input>
+          <input
+            value={rent}
+            onChange={handleRentChange}
+            name="rent"
+            type="number"
+            placeholder="Tiền phòng:"
+          ></input>
         </h4>
         <h4>Tiền Điện: {elecBill}</h4>
         <h4>Tiền Nước: {waterBill}</h4>
         <h4>
           Tiền Rác:
-          <input name="trashBill" type="number" placeholder="Tiền Rác:"></input>
+          <input
+            value={garbage}
+            onChange={handleGarbageChange}
+            name="trashBill"
+            type="number"
+            placeholder="Tiền Rác:"
+          ></input>
         </h4>
         <h4>
           Tiền Phát Sinh:
           <input
+            value={misc}
+            onChange={handleMiscChange}
             name="miscellaneous"
             type="number"
             placeholder="Tiền Phát Sinh:"
           ></input>
         </h4>
       </div>
-      <button>Submit</button>
+      <button onClick={calculateTotal}>Submit</button>
+      <div>{total}</div>
     </form>
   );
 }
