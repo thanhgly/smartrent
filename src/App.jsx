@@ -50,10 +50,7 @@ function App() {
   let categories = [waterBill, elecBill, rent, garbage, misc];
   const calculateTotal = (e) => {
     e.preventDefault();
-    // const totalSum = categories.reduce(
-    //   (acc, category) => acc + (parseFloat(category) || 0),
-    //   0
-    // );
+
     const totalSum = categories.reduce(
       (acc, category) => acc + (parseFloat(category) || 0),
       0
