@@ -1,3 +1,4 @@
-export default function Dashboard() {
+const Dashboard = () => {
   return <div>blah</div>;
-}
+};
+export default Dashboard;
