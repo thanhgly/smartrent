@@ -1,15 +1,21 @@
 import "./App.css";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Dashboard from "./Dashboard";
-import RentCal from "./RentCal";
+import { Link } from "react-router-dom";
 function App() {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/dashboard" element={<Dashboard />} />
-        <Route path="/rentcal" element={<RentCal />} />
-      </Routes>
-    </BrowserRouter>
+    <>
+      <header style={{ padding: "10px", backgroundColor: "#f0f0f0" }}>
+        <nav>
+          <ul style={{ listStyleType: "none", display: "flex", gap: "10px" }}>
+            <li>
+              <Link to="/dashboard">Dashboard</Link>
+            </li>
+            <li>
+              <Link to="/rentcal">Rent Cal</Link>
+            </li>
+          </ul>
+        </nav>
+      </header>
+    </>
   );
 }
 
