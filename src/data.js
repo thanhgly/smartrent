@@ -1,9 +1,8 @@
 let mockData = [
   {
     address: "298",
-
     unit: "1",
-    customer: "Thanh",
+    tenant: "Thanh",
     rent: "1000",
     prevElec: "12",
     currElec: "14",

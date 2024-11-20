@@ -1,4 +1,5 @@
 import { useState } from "react";
+import mockData from "./data";
 export default function RentCal() {
   const [currElec, setCurrElec] = useState("");
   const [prevElec, setPrevElec] = useState("");
@@ -10,7 +11,18 @@ export default function RentCal() {
   const [garbage, setGarbage] = useState("");
   const [misc, setMisc] = useState("");
   const [total, setTotal] = useState(0);
-
+  const [addr, setAddr] = useState("");
+  const [unit, setUnit] = useState("");
+  const [tenant, setTenant] = useState("");
+  function handleAddrChange(e) {
+    setAddr(e.target.value);
+  }
+  function handleUnitChange(e) {
+    setUnit(e.target.value);
+  }
+  function handleTenantChange(e) {
+    setTenant(e.target.value);
+  }
   function handleCurrElecChange(e) {
     setCurrElec(e.target.value);
     calculateElecBill(prevElec, e.target.value);
@@ -55,10 +67,51 @@ export default function RentCal() {
       0
     );
     setTotal(totalSum);
+    const newEntry = {
+      address: addr,
+      unit: unit,
+      tenant: tenant,
+      rent: rent,
+      prevElec: prevElec,
+      currElec: currElec,
+      billElec: elecBill,
+      prevWater: prevWater,
+      currWater: currWater,
+      billWater: waterBill,
+      total: total,
+    };
+    mockData.push(newEntry);
+    console.log("mock updated:", mockData);
   };
   return (
     <form>
       <header>hoa don tien phong</header>
+      <div>
+        <label>
+          Dia chi:
+          <input
+            placeholder="Dia chi"
+            value={addr}
+            onChange={handleAddrChange}
+          ></input>
+        </label>
+        <label>
+          Unit
+          <input
+            placeholder="Unit"
+            value={unit}
+            onChange={handleUnitChange}
+          ></input>
+        </label>
+        <label>
+          Tenant
+          <input
+            placeholder="Tenant"
+            value={tenant}
+            onChange={handleTenantChange}
+          ></input>
+        </label>
+      </div>
       <div>
         <label>
           Chênh lệch elec:
