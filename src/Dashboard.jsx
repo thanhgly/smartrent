@@ -1,4 +1,5 @@
 import mockData from "./data";
+import ExportIcon from "./icons/exportIcon";
 const Dashboard = () => {
   return (
     <table>
@@ -15,6 +16,7 @@ const Dashboard = () => {
           <th>Curr Water</th>
           <th>Bill Water</th>
           <th>Total</th>
+          <th>Export?</th>
         </tr>
         {mockData.map((customer, index) => (
           <tr key={index}>
@@ -29,6 +31,9 @@ const Dashboard = () => {
             <td>{mockData[index].currWater}</td>
             <td>{mockData[index].billWater}</td>
             <td>{mockData[index].total}</td>
+            <td>
+              <ExportIcon width={30} height={30} />
+            </td>
           </tr>
         ))}
       </tbody>
