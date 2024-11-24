@@ -5,7 +5,6 @@ import App from "./App.jsx";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Dashboard from "./Dashboard.jsx";
 import RentCal from "./RentCal.jsx";
-
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <BrowserRouter
