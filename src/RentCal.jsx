@@ -84,7 +84,7 @@ export default function RentCal() {
     console.log("mock updated:", mockData);
   };
   return (
-    <form>
+    <form style={{ width: "100%" }}>
       <header>hoa don tien phong</header>
       <div>
         <label>

@@ -6,17 +6,16 @@ const Header = () => {
       style={{
         position: "relative",
         backgroundColor: "white",
-        width: "100vw",
-        paddingTop: "0",
       }}
     >
       <nav>
         <ul
           style={{
+            display: "flex",
+            justifyContent: "space-evenly",
             listStyleType: "none",
-            display: "flex ",
-            gap: "10px",
-            justifyContent: "center",
+            // paddingLeft: "0px",
+            paddingInlineStart: "0px",
           }}
         >
           <li>
