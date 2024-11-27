@@ -5,7 +5,7 @@ const Header = () => {
     <div
       style={{
         position: "relative",
-        backgroundColor: "white",
+        backgroundColor: "#4335A7",
       }}
     >
       <nav>
@@ -14,7 +14,6 @@ const Header = () => {
             display: "flex",
             justifyContent: "space-evenly",
             listStyleType: "none",
-            // paddingLeft: "0px",
             paddingInlineStart: "0px",
           }}
         >
