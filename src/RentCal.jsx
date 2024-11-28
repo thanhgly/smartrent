@@ -14,6 +14,7 @@ export default function RentCal() {
   const [addr, setAddr] = useState("");
   const [unit, setUnit] = useState("");
   const [tenant, setTenant] = useState("");
+  const [prevBalance, setPrevBalance] = useState("");
   function handleAddrChange(e) {
     setAddr(e.target.value);
   }
@@ -58,7 +59,10 @@ export default function RentCal() {
   const handleMiscChange = (e) => {
     setMisc(e.target.value);
   };
-  let categories = [waterBill, elecBill, rent, garbage, misc];
+  const handlePrevBalanceChange = (e) => {
+    setPrevBalance(e.target.value); // New handler for previous balance
+  };
+  let categories = [waterBill, elecBill, rent, garbage, misc, prevBalance];
   const calculateTotal = (e) => {
     e.preventDefault();
 
@@ -78,43 +82,44 @@ export default function RentCal() {
       prevWater: prevWater,
       currWater: currWater,
       billWater: waterBill,
+      prevBalance: prevBalance,
       total: total,
     };
     mockData.push(newEntry);
     console.log("mock updated:", mockData);
   };
   return (
-    <form>
-      <header>Hóa đơn tiền phòng</header>
-      <div>
-        <label>
-          Dia chi:
+    <div style={{ display: "flex", justifyContent: "center" }}>
+      <form>
+        <h2>Hóa đơn tiền phòng</h2>
+        <h5>
+          Địa chỉ:
           <input
             placeholder="Dia chi"
             value={addr}
             onChange={handleAddrChange}
           ></input>
-        </label>
-        <label>
-          Unit
+        </h5>
+
+        <h5>
+          Phòng:
           <input
             placeholder="Unit"
             value={unit}
             onChange={handleUnitChange}
           ></input>
-        </label>
-        <label>
-          Tenant
+        </h5>
+        <h5>
+          Họ Tên:
           <input
             placeholder="Tenant"
             value={tenant}
             onChange={handleTenantChange}
           ></input>
-        </label>
-      </div>
-      <div>
-        <label>
-          Chênh lệch elec:
+        </h5>
+
+        <h5>
+          Chênh lệch Điện:
           <input
             value={currElec}
             onChange={handleCurrElecChange}
@@ -128,11 +133,11 @@ export default function RentCal() {
             placeholder="Số cũ:"
             type="number"
           ></input>
-        </label>
-      </div>
-      <div>
-        <label>
-          Chênh lệch water:
+        </h5>
+        <h5>Tiền Điện: {elecBill}</h5>
+
+        <h5>
+          Chênh lệch Nước:
           <input
             value={currWater}
             onChange={handleCurrWaterChange}
@@ -147,11 +152,11 @@ export default function RentCal() {
             placeholder="Số cũ:"
             type="number"
           ></input>
-        </label>
-      </div>
-      <div>
-        <h4>
-          Rent :
+        </h5>
+
+        <h5>Tiền Nước: {waterBill}</h5>
+        <h5>
+          Chi Phí Thuê :
           <input
             value={rent}
             onChange={handleRentChange}
@@ -159,10 +164,8 @@ export default function RentCal() {
             type="number"
             placeholder="Tiền phòng:"
           ></input>
-        </h4>
-        <h4>Tiền Điện: {elecBill}</h4>
-        <h4>Tiền Nước: {waterBill}</h4>
-        <h4>
+        </h5>
+        <h5>
           Tiền Rác:
           <input
             value={garbage}
@@ -171,8 +174,8 @@ export default function RentCal() {
             type="number"
             placeholder="Tiền Rác:"
           ></input>
-        </h4>
-        <h4>
+        </h5>
+        <h5>
           Tiền Phát Sinh:
           <input
             value={misc}
@@ -181,10 +184,19 @@ export default function RentCal() {
             type="number"
             placeholder="Tiền Phát Sinh:"
           ></input>
-        </h4>
-      </div>
-      <button onClick={calculateTotal}>Submit</button>
-      <div>{total}</div>
-    </form>
+        </h5>
+        <h5>
+          Tiền Nợ Cũ:
+          <input
+            value={prevBalance}
+            onChange={handlePrevBalanceChange}
+            name="prevBalance"
+            type="number"
+            placeholder="Tiền Nợ Cũ:"
+          ></input>
+        </h5>
+        <button onClick={calculateTotal}>Submit</button>
+      </form>
+    </div>
   );
 }

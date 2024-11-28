@@ -18,10 +18,10 @@ const Header = () => {
           }}
         >
           <li>
-            <Link to="/dashboard">Dashboard</Link>
+            <Link to="/dashboard">Danh Sách</Link>
           </li>
           <li>
-            <Link to="/rentcal">Rent Cal</Link>
+            <Link to="/rentcal">Tính Tiền Thuê</Link>
           </li>
         </ul>
       </nav>

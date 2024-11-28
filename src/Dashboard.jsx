@@ -34,18 +34,19 @@ const Dashboard = () => {
     <table>
       <tbody>
         <tr>
-          <th>Address</th>
-          <th>Unit</th>
-          <th>Tenant</th>
-          <th>Rent</th>
-          <th>Prev Elec</th>
-          <th>Curr Elec</th>
-          <th>Bill Elec</th>
-          <th>Prev Water</th>
-          <th>Curr Water</th>
-          <th>Bill Water</th>
-          <th>Total</th>
-          <th>Export?</th>
+          <th>Địa Chỉ</th>
+          <th>Phòng</th>
+          <th>Người Thuê</th>
+          <th>Tiền Thuê</th>
+          <th>Điện Cũ</th>
+          <th>Điện Mới</th>
+          <th>Tiền Điện</th>
+          <th>Nước Cũ</th>
+          <th>Nước Mới</th>
+          <th>Tiền Nước</th>
+          <th>Tiền Nợ Cũ</th>
+          <th>Tổng</th>
+          <th>Xuất Dữ Liệu?</th>
         </tr>
         {mockData.map((customer, index) => (
           <tr key={index}>
@@ -59,6 +60,7 @@ const Dashboard = () => {
             <td>{customer.prevWater}</td>
             <td>{customer.currWater}</td>
             <td>{customer.billWater}</td>
+            <td>{customer.prevBalance}</td>
             <td>{customer.total}</td>
             <td>
               {/* <ExportIcon customer={customer} width={30} height={30} /> */}

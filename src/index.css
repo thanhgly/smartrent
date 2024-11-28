@@ -3,7 +3,7 @@
   line-height: 1.5;
   font-weight: 400;
 
-  color-scheme: light dark;
+  color-scheme: normal;
   color: rgba(255, 255, 255, 0.87);
   background-color: #fff6e9;
 
@@ -48,6 +48,7 @@ button {
   background-color: #e68a4f;
   cursor: pointer;
   transition: border-color 0.25s;
+  margin: 3%;
 }
 button:hover {
   border-color: #804416;
@@ -102,5 +103,10 @@ tr:hover {
 }
 
 form {
-  width: 100%;
+  width: 50%;
+  border: 2px #4335a7 solid;
+  border-radius: 4px;
+  color: #4335a7;
+  background-color: #ffd2a0;
+  justify-items: center;
 }

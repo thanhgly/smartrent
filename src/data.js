@@ -10,6 +10,7 @@ let mockData = [
     prevWater: "33",
     currWater: "35",
     billWater: "3993",
+    prevBalance: "22",
     total: "30303030",
   },
 ];
